@@ -340,7 +340,7 @@ async function loadEntry(e) {
         try { launchPath = new URL(entry.launchCommand).pathname; } catch { return true; }
         
         if (['.swf', '.wrl', '.wrl.gz', '.x3d'].some(ext => launchPath.toLowerCase().endsWith(ext))) {
-            document.querySelector('.viewer-play').href = 'https://ooooooooo.ooo/static/?' + id;
+            document.querySelector('.viewer-play').href = 'https://ooooooooo.ooo/?id=' + id;
             return 'unset';
         }
         else return 'none';
