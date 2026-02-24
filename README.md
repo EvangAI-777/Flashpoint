@@ -45,6 +45,8 @@ API endpoints and display constants are defined in `js/config.js`:
 ## Project Structure
 
 ```
+.github/workflows/
+  ci.yml             GitHub Actions CI – runs lint on push/PR
 assets/              Static assets (logo, icons, favicon)
 css/
   base.css           Global styles, typography, form controls, tables
@@ -70,6 +72,26 @@ statistics/
 index.html           Home page
 home.js              Home page logic (stats, recent entries, search redirect)
 ```
+
+## Linting
+
+Install dev dependencies and run all linters:
+
+```bash
+npm install
+npm run lint
+```
+
+Individual linters can be run separately:
+
+| Script | Tool | Scope |
+|---|---|---|
+| `npm run lint:html` | html-validate | All `*.html` files |
+| `npm run lint:css` | Stylelint | `css/**/*.css` |
+| `npm run lint:js` | ESLint (flat config) | All `*.js` files |
+| `npm run lint:json` | Node.js JSON.parse | Data files (`fields.json`, `sort.json`, `package.json`) |
+
+A GitHub Actions CI workflow (`.github/workflows/ci.yml`) runs the full lint suite on every push and pull request to `master`/`main`.
 
 ## Pages
 
