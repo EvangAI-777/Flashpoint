@@ -1,0 +1,9 @@
+{
+  "name": "flashpoint-database",
+  "version": "1.0.0",
+  "description": "Pure HTML5 frontend for the Flashpoint web game preservation database API",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
