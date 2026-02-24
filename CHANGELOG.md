@@ -2,6 +2,18 @@
 
 All notable changes to the Flashpoint Database frontend are documented in this file.
 
+## [1.1.1] - 2026-02-24
+
+### Added
+- **GitHub Pages deployment workflow** (`.github/workflows/deploy.yml`): validates then deploys site files to GitHub Pages on push to `main`
+- **Custom 404 page** (`404.html`): branded error page with navigation back to home
+- **`.nojekyll` marker**: prevents Jekyll processing on GitHub Pages
+- **Comprehensive README**: developer notes on API CORS requirements, GitHub Pages setup, zipper integration status, and architecture overview
+
+### Fixed
+- **CI YAML syntax error**: the inline `node -e "..."` command in `ci.yml` used a YAML flow scalar for multiline content, causing GitHub Actions to fail with "yaml syntax error on line 40"; switched to block scalar (`run: |`)
+- **Unused import warning**: removed unused `loadEntry` import from `search/search.js`
+
 ## [1.1.0] - 2026-02-24
 
 ### Added
