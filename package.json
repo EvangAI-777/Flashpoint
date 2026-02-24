@@ -1,8 +1,20 @@
 {
   "name": "flashpoint-database",
-  "version": "1.0.0",
-  "description": "Pure HTML5 frontend for the Flashpoint web game preservation database API",
+  "version": "1.1.0",
+  "description": "Pure HTML5 frontend for the Flashpoint web game preservation database API. Search, browse, and explore the full catalog of preserved web games and animations.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlashpointProject/flashpoint-database"
+  },
+  "homepage": "https://flashpointproject.github.io/flashpoint-database",
+  "keywords": [
+    "flashpoint",
+    "web-preservation",
+    "flash-games",
+    "database",
+    "frontend"
+  ],
   "scripts": {
     "dev": "npx serve ."
   }

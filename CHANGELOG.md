@@ -2,7 +2,7 @@
 
 All notable changes to the Flashpoint Database frontend are documented in this file.
 
-## [Unreleased]
+## [1.1.0] - 2026-02-24
 
 ### Added
 - **Home page content**: project description, quick-link cards (Advanced Search, Statistics, Get Flashpoint), and a "Recently Added" section showing the 5 most recent entries
