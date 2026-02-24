@@ -26,7 +26,7 @@ export async function loadEntry(e) {
 
     document.querySelector('.viewer-play').style.display = (() => {
         let launchPath;
-        try { launchPath = new URL(entry.launchCommand).pathname; } catch { return true; }
+        try { launchPath = new URL(entry.launchCommand).pathname; } catch { return 'none'; }
 
         if (['.swf', '.wrl', '.wrl.gz', '.x3d'].some(ext => launchPath.toLowerCase().endsWith(ext))) {
             document.querySelector('.viewer-play').href = 'https://ooooooooo.ooo/?id=' + id;
@@ -40,12 +40,12 @@ export async function loadEntry(e) {
 
     document.querySelector('.viewer-logo a').href = logo;
     document.querySelector('.viewer-logo img').style.visibility = 'hidden';
-    document.querySelector('.viewer-logo img').addEventListener('load', e => e.target.style.visibility = 'visible');
+    document.querySelector('.viewer-logo img').onload = e => e.target.style.visibility = 'visible';
     document.querySelector('.viewer-logo img').src = logo + '?type=jpg';
 
     document.querySelector('.viewer-screenshot a').href = screenshot;
     document.querySelector('.viewer-screenshot img').style.visibility = 'hidden';
-    document.querySelector('.viewer-screenshot img').addEventListener('load', e => e.target.style.visibility = 'visible');
+    document.querySelector('.viewer-screenshot img').onload = e => e.target.style.visibility = 'visible';
     document.querySelector('.viewer-screenshot img').src = screenshot + '?type=jpg';
 
     let metaTable = document.querySelector('.viewer-metadata');

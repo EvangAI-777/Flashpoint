@@ -2,7 +2,8 @@
     width: 30rem;
     height: calc(100% - 3.5rem);
     padding: 1rem;
-    box-shadow: 0.1rem 0 0.5rem #0006;
+    background-color: #fff;
+    box-shadow: 2px 0 8px #0001;
     position: fixed;
     top: 3.5rem; left: 0;
     box-sizing: border-box;
@@ -21,11 +22,11 @@
     border-collapse: collapse;
 }
 .search-table tr:first-child td {
-    border-top: 0.15rem solid #0002;
+    border-top: 1px solid #e0e0e0;
 }
 .search-table td {
     padding: 0.5rem 0;
-    border-bottom: 0.15rem solid #0002;
+    border-bottom: 1px solid #e0e0e0;
 }
 .search-table td:first-child {
     width: 46%;
@@ -39,6 +40,8 @@
 .search-button {
     width: 100%;
     margin-top: 1rem;
+    padding: 0.5rem !important;
+    font-size: 0.95rem !important;
 }
 
 .results {
@@ -52,7 +55,7 @@
 }
 .results-top {
     padding-bottom: 0.5rem;
-    border-bottom: 0.15rem solid #0002;
+    border-bottom: 1px solid #e0e0e0;
     align-items: center;
 }
 .results-count {
@@ -60,12 +63,14 @@
 }
 .results-total {
     font-weight: bold;
+    color: #dd0428;
 }
 .results-navigate {
     margin-left: 1.2rem;
 }
 .results-per-page {
     font-size: 0.7rem;
+    color: #888;
 }
 .results-input-page {
     width: 2rem !important;
@@ -82,8 +87,12 @@
 
 .entry {
     padding: 0.5rem 0;
-    border-bottom: 0.15rem solid #0002;
+    border-bottom: 1px solid #e0e0e0;
     display: flex;
+    transition: background-color 0.15s;
+}
+.entry:hover {
+    background-color: #f8f9fc;
 }
 
 .entry:not([compact]) {
@@ -97,6 +106,7 @@
     margin-right: 0.5rem;
     flex: 0 0 8rem;
     cursor: pointer;
+    border-radius: 4px;
 }
 .entry:not([compact]) .entry-text {
     min-width: 0;
@@ -107,26 +117,29 @@
     overflow: hidden;
 }
 .entry:not([compact]) .entry-title {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 1.5rem;
+    font-weight: 600;
 }
 .entry:not([compact]) .entry-developer {
     font-size: 0.7rem;
     margin-left: 0.1rem;
+    color: #666;
 }
 .entry:not([compact]) .entry-type,
 .entry:not([compact]) .entry-tags {
     font-size: 0.9rem;
 }
 .entry:not([compact]) .entry-tags {
-    color: #000a;
+    color: #777;
 }
 .entry:not([compact]) .entry-description {
     margin-top: 0.5rem;
     white-space: normal;
+    color: #444;
 }
 .entry:not([compact]) .entry-description[empty] {
-    color: #000a;
+    color: #aaa;
     font-style: italic;
 }
 
@@ -163,14 +176,16 @@
 .entry[compact] .entry-developer {
     padding-right: 0.5rem;
     max-width: calc(25% - 2.8rem);
+    color: #666;
 }
 .entry[compact] .entry-description {
-    color: #000a;
+    color: #999;
     flex-grow: 1;
 }
 .entry[compact] .entry-tags {
     padding-left: 0.5rem;
     max-width: calc(35% - 2.8rem);
+    color: #777;
 }
 
 .viewer {
@@ -190,10 +205,13 @@
 }
 .viewer-images {
     display: flex;
+    gap: 0.5rem;
 }
 .viewer-logo, .viewer-screenshot {
     height: 15rem;
-    border: 0.15rem solid #0002;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
 }
 .viewer-logo {
     width: 100%;

@@ -14,22 +14,121 @@
     gap: 0.3rem;
 }
 .home-title {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 3rem;
+    font-weight: 700;
     display: flex;
     align-items: flex-end;
     flex-grow: 1.5;
+    color: #1a1a2e;
 }
 .home-subtitle {
     flex-grow: 1;
+    color: #555;
+    font-size: 1.05rem;
+}
+.home-subtitle b {
+    color: #dd0428;
+    font-weight: 700;
 }
 .home-search {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 .home-search-input, .home-search-button {
-    padding: 0.3rem 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 1rem !important;
 }
 .home-search-input {
-    width: 20rem !important;
+    width: 22rem !important;
+    border-radius: 4px 0 0 4px !important;
+    border-right: none !important;
+}
+.home-search-button {
+    border-radius: 0 4px 4px 0 !important;
+    padding: 0.5rem 1.2rem !important;
+}
+
+.home-about {
+    max-width: 36rem;
+    margin: 2rem auto 0;
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.home-about a {
+    font-weight: 600;
+}
+
+.home-quick-links {
+    max-width: 42rem;
+    margin: 2rem auto 0;
+    display: flex;
+    gap: 1rem;
+}
+.home-quick-link {
+    flex: 1;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0001;
+    text-decoration: none !important;
+    color: inherit !important;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+.home-quick-link:hover {
+    box-shadow: 0 4px 16px #0002;
+    transform: translateY(-2px);
+}
+.home-quick-link-title {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1a1a2e;
+    margin-bottom: 0.3rem;
+}
+.home-quick-link-desc {
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.4;
+}
+
+.home-recent {
+    max-width: 42rem;
+    margin: 2rem auto 0;
+}
+.home-recent-title {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.75rem;
+}
+.home-recent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.home-recent-item {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px #0001;
+    text-decoration: none !important;
+    color: inherit !important;
+    transition: box-shadow 0.15s;
+}
+.home-recent-item:hover {
+    box-shadow: 0 2px 8px #0002;
+}
+.home-recent-item-title {
+    font-weight: 600;
+    color: #1a1a2e;
+}
+.home-recent-item-meta {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.15rem;
 }

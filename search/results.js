@@ -16,12 +16,7 @@ export function performSearch() {
     });
 
     for (let field in fields)
-        params.push(field + '=' + fields[field]
-            .replace(/%/g, '%25')
-            .replace(/#/g, '%23')
-            .replace(/&/g, '%26')
-            .replace(/;/g, '%3B')
-            .replace(/\+/g, '%2B'));
+        params.push(encodeURIComponent(field) + '=' + encodeURIComponent(fields[field]));
 
     if (document.querySelector('#filter').checked) params.push('filter=true');
     if (document.querySelector('#any').checked) params.push('any=true');
