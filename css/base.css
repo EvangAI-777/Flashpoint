@@ -1,19 +1,24 @@
 body {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f5f6fa;
+    color: #2d3436;
 }
 
 .content {
-    font-family: Verdana, sans-serif;
+    font-family: 'Segoe UI', Verdana, sans-serif;
     margin-top: 3rem;
     padding: 2rem;
+    line-height: 1.5;
 }
 .content a:link, .common-activate {
     color: #045edd;
     text-decoration: none;
+    transition: color 0.15s;
 }
 .content a:hover, .common-activate:hover {
+    color: #0346a8;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -22,17 +27,42 @@ body {
     text-decoration: underline;
 }
 .content a:visited {
-    color: #ed687e;
+    color: #8e5a65;
     text-decoration: none;
 }
 .content input, .content button, .content select {
-    padding: 0.2rem 0.3rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.content input:focus, .content select:focus {
+    outline: none;
+    border-color: #045edd;
+    box-shadow: 0 0 0 2px #045edd30;
+}
+.content button {
+    background-color: #dd0428;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.15s, transform 0.1s;
+}
+.content button:hover {
+    background-color: #b80320;
+}
+.content button:active {
+    transform: scale(0.97);
 }
 .content input:not([type]), .content input[type="text"] {
     width: 11rem;
 }
 .content input[type="checkbox"], .content input[type="radio"] {
     vertical-align: top;
+    accent-color: #dd0428;
 }
 .content input[type="checkbox"] ~ label {
     margin-right: 1rem;
@@ -43,16 +73,20 @@ body {
     margin: 0 auto;
 }
 .common-header {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     padding-bottom: 0.4rem;
-    border-bottom: 0.15rem solid #0003;
+    border-bottom: 0.15rem solid #dd042830;
+    color: #1a1a2e;
 }
 .common-subheader {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 1.7rem;
+    font-weight: 600;
     margin: 1rem 0 0.5rem;
+    color: #2d3436;
 }
 .common-text {
     margin-bottom: 0.5rem;
@@ -65,9 +99,10 @@ body {
     display: block;
 }
 .common-loading {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 1.3rem;
     text-align: center;
+    color: #666;
 }
 .common-loading > div {
     width: 0.8rem;
@@ -75,7 +110,7 @@ body {
     display: inline-block;
     margin-right: 0.2rem;
     margin-bottom: 0.2rem;
-    border: 0.15rem solid #000;
+    border: 0.15rem solid #dd0428;
     border-radius: 1rem;
     vertical-align: bottom;
     animation: spin 1s linear infinite;
@@ -83,7 +118,7 @@ body {
 .common-loading > div > div {
     width: 0.6rem;
     height: 0.6rem;
-    background-color: #fff;
+    background-color: #f5f6fa;
     margin-left: -0.4rem;
     margin-bottom: 0.3rem;
 }
@@ -93,12 +128,16 @@ body {
     border-collapse: collapse;
 }
 .common-table :is(td, th) {
-    padding: 0.5rem;
-    border: 0.15rem solid #0002;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e0e0e0;
     overflow-wrap: anywhere;
 }
 .common-table th {
-    background-color: #0001;
+    background-color: #f0f1f5;
+    font-weight: 600;
+}
+.common-table tr:hover td {
+    background-color: #f8f9fc;
 }
 .common-table ul {
     margin: 0;

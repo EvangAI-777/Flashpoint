@@ -28,6 +28,6 @@ home.js          Home page logic
 ```
 
 ## To-do
-* Make the site prettier
-* Add stuff to the homepage
-* Hunt for bugs
+* ~~Make the site prettier~~ - Done: updated styling across all pages with modern fonts, subtle gradients, refined colors, hover effects, styled form controls, and card-based layouts
+* ~~Add stuff to the homepage~~ - Done: added project description, quick-link cards (Advanced Search, Statistics, Get Flashpoint), and a "Recently Added" entries section
+* ~~Hunt for bugs~~ - Done: fixed invalid CSS display value in viewer play button logic, fixed image load event listener leak, replaced incomplete manual URL encoding with encodeURIComponent, and added API error handling

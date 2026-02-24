@@ -9,10 +9,22 @@
     display: flex;
     flex-direction: column;
     flex: 0 0 12rem;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px #0001;
+}
+.stats-total div:first-child {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 .stats-total div:last-child {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 2rem;
+    font-weight: 700;
+    color: #dd0428;
 }
 .stats-platforms, .stats-platforms :is(td, th) {
     width: auto !important;
