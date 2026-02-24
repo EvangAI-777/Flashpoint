@@ -1,0 +1,26 @@
+.stats-display {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    column-gap: 2em;
+}
+.stats-total {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 12rem;
+}
+.stats-total div:last-child {
+    font-family: Tahoma, sans-serif;
+    font-size: 2rem;
+}
+.stats-platforms, .stats-platforms :is(td, th) {
+    width: auto !important;
+}
+.stats-platforms {
+    margin: 1rem auto 0;
+}
+.stats-platforms :is(td, th) {
+    text-align: center;
+    padding: 0.5rem 1rem;
+}

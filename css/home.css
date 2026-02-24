@@ -1,0 +1,35 @@
+.home-header {
+    width: 42rem;
+    height: 12rem;
+    white-space: nowrap;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+}
+.home-text {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.3rem;
+}
+.home-title {
+    font-family: Tahoma, sans-serif;
+    font-size: 3rem;
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1.5;
+}
+.home-subtitle {
+    flex-grow: 1;
+}
+.home-search {
+    text-align: center;
+    margin-top: 1rem;
+}
+.home-search-input, .home-search-button {
+    padding: 0.3rem 0.5rem !important;
+}
+.home-search-input {
+    width: 20rem !important;
+}

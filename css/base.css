@@ -1,0 +1,111 @@
+body {
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    font-family: Verdana, sans-serif;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+.content a:link, .common-activate {
+    color: #045edd;
+    text-decoration: none;
+}
+.content a:hover, .common-activate:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.content a:active, .common-activate:active {
+    color: #dd0428;
+    text-decoration: underline;
+}
+.content a:visited {
+    color: #ed687e;
+    text-decoration: none;
+}
+.content input, .content button, .content select {
+    padding: 0.2rem 0.3rem;
+}
+.content input:not([type]), .content input[type="text"] {
+    width: 11rem;
+}
+.content input[type="checkbox"], .content input[type="radio"] {
+    vertical-align: top;
+}
+.content input[type="checkbox"] ~ label {
+    margin-right: 1rem;
+}
+
+.common-center {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+.common-header {
+    font-family: Tahoma, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 0.15rem solid #0003;
+}
+.common-subheader {
+    font-family: Tahoma, sans-serif;
+    font-size: 1.7rem;
+    margin: 1rem 0 0.5rem;
+}
+.common-text {
+    margin-bottom: 0.5rem;
+}
+.common-text + .common-text {
+    margin-top: 1rem;
+}
+.common-check {
+    padding: 0.2rem 0;
+    display: block;
+}
+.common-loading {
+    font-family: Tahoma, sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.common-loading > div {
+    width: 0.8rem;
+    height: 0.8rem;
+    display: inline-block;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    border: 0.15rem solid #000;
+    border-radius: 1rem;
+    vertical-align: bottom;
+    animation: spin 1s linear infinite;
+}
+.common-loading > div > div {
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: #fff;
+    margin-left: -0.4rem;
+    margin-bottom: 0.3rem;
+}
+.common-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.common-table :is(td, th) {
+    padding: 0.5rem;
+    border: 0.15rem solid #0002;
+    overflow-wrap: anywhere;
+}
+.common-table th {
+    background-color: #0001;
+}
+.common-table ul {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
