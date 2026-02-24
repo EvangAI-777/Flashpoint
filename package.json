@@ -1,9 +1,33 @@
 {
   "name": "flashpoint-database",
-  "version": "1.0.0",
-  "description": "Pure HTML5 frontend for the Flashpoint web game preservation database API",
+  "version": "1.1.0",
+  "description": "Pure HTML5 frontend for the Flashpoint web game preservation database API. Search, browse, and explore the full catalog of preserved web games and animations.",
+  "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlashpointProject/flashpoint-database"
+  },
+  "homepage": "https://flashpointproject.github.io/flashpoint-database",
+  "keywords": [
+    "flashpoint",
+    "web-preservation",
+    "flash-games",
+    "database",
+    "frontend"
+  ],
   "scripts": {
-    "dev": "npx serve ."
+    "dev": "npx serve .",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js && npm run lint:json",
+    "lint:html": "html-validate \"**/*.html\" --config .htmlvalidate.json",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:js": "eslint .",
+    "lint:json": "node -e \"const fs=require('fs');['search/fields.json','search/sort.json','package.json'].forEach(f=>{JSON.parse(fs.readFileSync(f,'utf8'));console.log('OK:',f)})\""
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "html-validate": "^8.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
   }
 }
