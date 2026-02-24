@@ -3,7 +3,7 @@ import { fetchJson } from '../js/api.js';
 import { RESULTS_PER_PAGE, IMAGES_BASE, ICONS_BASE } from '../js/config.js';
 import { initFields } from './fields.js';
 import { performSearch, applySort, loadPage, loadPageFromInput } from './results.js';
-import { loadEntry, backToResults } from './viewer.js';
+import { backToResults } from './viewer.js';
 
 renderNavbar('search');
 
