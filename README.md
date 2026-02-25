@@ -157,10 +157,10 @@ If the API is unreachable or returns errors, the frontend will show empty states
 
 The codebase is well-suited for static hosting — all internal paths are relative, there is no build step, and ES modules use standard `.js` extensions. However, there is a **critical blocker** for full functionality:
 
-**API CORS restriction:** The Flashpoint API at `db-api.unstable.life` currently returns `403 Forbidden` with `x-deny-reason: host_not_allowed` for requests from origins it does not recognize. For the GitHub Pages deployment to work with live data, the API operators would need to:
+**API CORS restriction:** Requests to `db-api.unstable.life` from unrecognized origins return `403 Forbidden` with `x-deny-reason: host_not_allowed`. Notably, the API source code ([flashpoint-database-api](https://github.com/FlashpointProject/flashpoint-database-api)) sets `Access-Control-Allow-Origin: *`, so **the block comes from a reverse proxy or CDN sitting in front of the API**, not the Go application itself. For the GitHub Pages deployment to work with live data, whoever operates the proxy infrastructure would need to:
 
-1. Whitelist the GitHub Pages origin (e.g. `https://evangai-777.github.io`) in their CORS configuration
-2. Return appropriate `Access-Control-Allow-Origin` headers for that origin
+1. Whitelist the GitHub Pages origin (e.g. `https://evangai-777.github.io`) in the proxy/CDN configuration
+2. Allow the API's own `Access-Control-Allow-Origin: *` header to pass through
 
 Without this, the site deploys and loads but every API-powered feature (search, statistics, recently added) will fail with CORS errors. Static content (home page layout, navigation, 404 page) works fine regardless.
 
@@ -181,6 +181,45 @@ Without this, the site deploys and loads but every API-powered feature (search, 
 - **Hash-based entry viewer** — entry UUIDs are stored in `location.hash`, so the search page is a single-page app that doesn't require server-side routing
 - **Clean URL routing** — pages like `/search` and `/statistics` rely on directory `index.html` files, which work natively on most static hosts
 - **Module structure** — shared utilities (`js/api.js`, `js/config.js`, `js/navbar.js`) are imported by page-specific scripts; the search page further splits logic across `search.js`, `fields.js`, `results.js`, and `viewer.js`
+
+## Code Review Findings
+
+Analysis performed against the [flashpoint-database-api](https://github.com/FlashpointProject/flashpoint-database-api) source and a full codebase scan.
+
+### API Surface
+
+The API exposes 9 endpoints. This frontend uses 4 of them:
+
+| Endpoint | Used | Purpose | Notes |
+|---|---|---|---|
+| `/search` | Yes | Full-text search with filtering | Core feature |
+| `/stats` | Yes | Entry count totals | Home + statistics pages |
+| `/addapps` | Yes | Additional apps for an entry | Entry viewer |
+| `/platforms` | Yes | Platform list for dropdowns | Search filter |
+| `/tags` | No | All tags with aliases and categories | Could power tag autocomplete or a browsable tag list |
+| `/get` | No | Direct game file download | Requires server-side config (`serveFiles: true`); relevant to the [Zipper integration](#downloads--zipper-integration) |
+| `/files` | No | List GameZIP contents | Same config requirement as `/get` |
+| `/logo` | No | Logo image with server-side resize | Supports `width`, `height`, `format`, `quality` params; we use the CDN instead |
+| `/screenshot` | No | Screenshot image with server-side resize | Same as `/logo` |
+
+### Code Quality Notes
+
+**Missing error handling on fetch calls:**
+- `search/results.js:30` — search fetch has no `.catch()`; on failure the loading spinner hangs indefinitely
+- `search/viewer.js:25` — entry fetch has no error handling; crashes on failure
+- `search/viewer.js:100` — addapps fetch has no error handling; crashes on failure
+
+**Fragile stats indexing:**
+- `home.js:7-8` assumes `libraryTotals[0]` = Games and `[1]` = Animations
+- `statistics/statistics.js:10-11` assumes `formatTotals[0]` = GameZIP and `[1]` = Legacy
+- The API returns a `name` field on each stat object — matching by name instead of array index would be safer
+
+**Orphaned download feature CSS:**
+- `css/search.css:239-254` defines `.download-center` and `.download-table` styles that are not used by any page
+- `.gitignore` entries for `downloads/zip/*.zip` and `downloads/info.json` are also orphaned
+- Related to the [Downloads / Zipper Integration](#downloads--zipper-integration) section above
+
+**Overall:** No TODO/FIXME comments, no debug `console.log` statements, no commented-out code. The codebase is clean.
 
 ## Browser Support
 
